@@ -3,4 +3,4 @@ title = "Home"
 description = "xD LOL"
 +++
 
-# welcome to my website
+# Hey, I'm Max

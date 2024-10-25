@@ -26,8 +26,9 @@ body {
 	width: 100%;
 
 	display: flex;
-	justify-content: center;
-	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
 
 	background-color: var(--background);
 	color: var(--foreground);
@@ -37,14 +38,41 @@ body {
 	font-style: normal;
 }
 
+main, header, footer {
+	width: 50%;
+}
+
+footer {
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: 1rem;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+nav a {
+	color: var(--purple);
+	font-size: 1.5rem;
+	text-decoration: none;
+	flex: 1;
+	text-align: center;
+	padding: 0.25em;
+	border-bottom: 3px solid var(--purple);
+}
+
+nav a:hover {
+	color: var(--background);
+	background-color: var(--purple);
+}
+
 h1 {
+	text-align: center;
 	color: var(--cyan);
 	font-family: "Roboto Mono", monospace;
 	font-optional-sizing: auto;
 	font-weight: 600;
 	font-style: normal;
-}
-
-main {
-	width: 33%;
 }

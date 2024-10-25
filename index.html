@@ -11,13 +11,21 @@
 	<head>
 		{{ include "/partials/head.html" $markdownFile.Meta.title $markdownFile.Meta.description }}
 	</head>
-		<main id="content">
-			<div id="header">
-				<h1>{{ $markdownFile.Meta.title }}</h1>
-				<span>Max Reiter</span>
-				<hr>
+		<header>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+				<a href="/resume">Resume</a>
+			</nav>
+		</header>
+		<main>
+			<div>
+				{{ markdown $markdownFile.Body }}
 			</div>
 		</main>
+		<footer>
+			<small>Copyright Max Reiter 2024</small>
+		</footer>
 	<body>
 	</body>
 </html>
