@@ -1,3 +1,6 @@
+@import url("/static/style/roboto.css");
+@import url("/static/style/roboto-mono.css");
+
 :root {
 	--background: #282A36;
 	--foreground: #F8F8F2;
@@ -40,6 +43,12 @@ body {
 
 main, header, footer {
 	width: 50%;
+}
+
+@media (max-width: 1024px) {
+	main, header, footer {
+		width: 90%;
+	}
 }
 
 footer {
@@ -92,6 +101,13 @@ blockquote {
 blockquote p {
 	font-size: 20px;
 	font-family: "Roboto Mono", monospace;
+}
+
+code {
+	background-color: var(--selection);
+	padding: 1px;
+	color: var(--yellow);
+	border-radius: 5px;
 }
 
 a {
