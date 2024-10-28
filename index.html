@@ -1,31 +1,3 @@
 {{ $pathParts := splitList "/" .OriginalReq.URL.Path }}
-{{ $markdownFilename := default "index" (slice $pathParts 2 | join "/") }}
-{{ $markdownFilePath := printf "/content/%s.md" $markdownFilename }}
-{{ if not (fileExists $markdownFilePath) }}
-	{{ httpError 404 }}
-{{ end }}
-{{ $markdownFile := (include $markdownFilePath | splitFrontMatter) }}
-
-<!DOCTYPE html>
-<html>
-	<head>
-		{{ include "/partials/head.html" $markdownFile.Meta.title $markdownFile.Meta.description }}
-	</head>
-		<header>
-			<nav>
-				<a href="/">Home</a>
-				<a href="/about">About</a>
-				<a href="/resume">Resume</a>
-			</nav>
-		</header>
-		<main>
-			<div>
-				{{ markdown $markdownFile.Body }}
-			</div>
-		</main>
-		<footer>
-			<small>Copyright Max Reiter 2024</small>
-		</footer>
-	<body>
-	</body>
-</html>
+{{ $markdownFilename := default "index" (slice $pathParts 1 | join "/") }}
+{{ include "/partials/base.html" $markdownFilename }}

@@ -1,0 +1,36 @@
+{{ $markdownFilename := index .Args 0 }}
+{{ $markdownFilePath := printf "/content/%s.md" $markdownFilename }}
+{{ if not (fileExists $markdownFilePath) }}
+	{{ httpError 404 }}
+{{ end }}
+{{ $markdownFile := (include $markdownFilePath | splitFrontMatter) }}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		{{ include "/partials/head.html" $markdownFile.Meta.title $markdownFile.Meta.description }}
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+				<a href="/projects">Projects</a>
+				<a href="/resume">Resume</a>
+			</nav>
+		</header>
+		<main>
+			<div>
+				{{ markdown $markdownFile.Body }}
+			</div>
+		</main>
+		<footer>
+			<small>&copy; <span id="copyright-year">???</span> <a href="https://maxreiter.dev">Max Reiter</a></small>
+		</footer>
+		<script>
+			const copyrightYear = document.getElementById("copyright-year");
+			const currDate = new Date();
+			copyrightYear.innerText = currDate.getFullYear();
+		</script>
+	</body>
+</html>
