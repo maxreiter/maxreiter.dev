@@ -12,4 +12,11 @@ www.maxreiter.dev, maxreiter.dev {
 		templates
 		file_server
 	}
+
+	tls {
+		resolvers 1.1.1.1
+		dns cloudflare {
+			{env.CF_API_TOKEN}
+		}
+	}
 }
