@@ -15,8 +15,6 @@ www.maxreiter.dev, maxreiter.dev {
 
 	tls {
 		resolvers 1.1.1.1
-		dns cloudflare {
-			{env.CF_API_TOKEN}
-		}
+		dns cloudflare {env.CF_API_TOKEN}
 	}
 }
