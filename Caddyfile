@@ -1,0 +1,15 @@
+www.maxreiter.dev, maxreiter.dev {
+	root * /srv/maxreiter.dev
+	file_server {
+		index index.html
+	}
+	try_files {path} /index.html
+	templates
+	encode gzip zstd
+
+	handle_errors {
+		rewrite * /error.html
+		templates
+		file_server
+	}
+}
